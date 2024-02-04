@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { SearchIcon } from "../Icons";
 import useDebounce from "@/hooks";
 
-export const SearchBar = ({ placeholder, Fixed = true }) => {
+export const SearchModal = ({ placeholder, Fixed=true }) => {
 	const [query, setQuery] = useState("");
 	const [suggestions, setSuggestions] = useState([]);
 	const [isFocused, setIsFocused] = useState(false);
@@ -24,18 +24,14 @@ export const SearchBar = ({ placeholder, Fixed = true }) => {
 		fetchSuggestions();
 	}, [debouncedQuery]);
 
-	const dropdownCls = `${
-		Fixed ? "absolute" : "relative"
-	} z-30 mt-1 p-4 w-full bg-white border border-gray-300 rounded-md shadow-lg`;
+
+	const dropdownCls = `${Fixed ? "absolute": "relative"} z-30 mt-1 p-4 w-full bg-white rounded-md`
 	return (
 		<div className="relative w-full">
 			<form className="group">
-				<div className="relative">
-					<div className="absolute right-3 transform border-l h-[80%] top-[10%] flex items-center justify-center max-w-[72px] px-3 bg-white">
-						<SearchIcon className="relative" />
-					</div>
+				<div className="relative max-w-[85%]">
 					<input
-						className="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-full py-3 pl-10 pr-12 ring-1 ring-slate-200 shadow-sm"
+						className="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 py-3 px-6 ring-1 ring-slate-200 shadow-sm"
 						type="text"
 						aria-label="Search"
 						placeholder={placeholder}
@@ -46,7 +42,7 @@ export const SearchBar = ({ placeholder, Fixed = true }) => {
 					/>
 				</div>
 			</form>
-			{isFocused && suggestions.length > 0 && (
+			{ suggestions.length > 0 && (
 				<ul className={dropdownCls}>
 					{suggestions.map((suggestion, index) => (
 						<li key={index} className="text-sm font-semibold mb-2">

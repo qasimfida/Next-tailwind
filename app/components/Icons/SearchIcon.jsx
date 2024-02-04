@@ -3,7 +3,7 @@ export const SearchIcon = () => (
 		width="20"
 		height="20"
 		fill="currentColor"
-		className="absolute right-3 top-1/2 -mt-2.5 text-black-400 pointer-events-none group-focus-within:text-blue-500"
+		className="text-black-400 pointer-events-none group-focus-within:text-blue-500"
 		aria-hidden="true">
 		<path
 			fillRule="evenodd"
