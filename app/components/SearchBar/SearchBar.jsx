@@ -26,7 +26,7 @@ export const SearchBar = ({ placeholder, Fixed = true }) => {
 
 	const dropdownCls = `${
 		Fixed ? "absolute" : "relative"
-	} z-30 mt-1 p-4 w-full bg-white border border-gray-300 rounded-md shadow-lg`;
+	} z-30 mt-6 p-4 w-full bg-white border border-gray-300 rounded-md shadow-lg`;
 	return (
 		<div className="relative w-full">
 			<form className="group">
@@ -47,25 +47,30 @@ export const SearchBar = ({ placeholder, Fixed = true }) => {
 				</div>
 			</form>
 			{isFocused && suggestions.length > 0 && (
-				<ul className={dropdownCls}>
-					{suggestions.map((suggestion, index) => (
-						<li key={index} className="text-sm font-semibold mb-2">
-							<Link
-								href={`/search?q=${encodeURIComponent(suggestion)}`}
-								className="flex items-center">
-								<span className="mr-6 text-2xl">#</span> {suggestion}
+				<div className={dropdownCls}>
+					<h4 className="inline-block text-xs font-bold tracking-wide mt-1.5 mb-1.5 text-left uppercase">
+						Trends
+					</h4>
+					<ul>
+						{suggestions.map((suggestion, index) => (
+							<li key={index} className=" font-semibold mb-2 px-5 py-2 rounded hover:bg-[#dedede] ">
+								<Link
+									href={`/search?q=${encodeURIComponent(suggestion)}`}
+									className="flex items-center">
+									<span className="mr-6 text-2xl">#</span> {suggestion}
+								</Link>
+							</li>
+						))}
+						<li>
+							<Link href="/search" className="text-sm font-semibold mt-4 flex items-center">
+								<div className="mr-3 bg-pink-500 w-6 h-6 rounded-full text-white flex items-center justify-center">
+									#
+								</div>
+								Show all media
 							</Link>
 						</li>
-					))}
-					<li>
-						<Link href="/search" className="text-sm font-semibold mt-4 flex items-center">
-							<div className="mr-3 bg-pink-500 w-6 h-6 rounded-full text-white flex items-center justify-center">
-								#
-							</div>
-							Show all media
-						</Link>
-					</li>
-				</ul>
+					</ul>
+				</div>
 			)}
 		</div>
 	);
