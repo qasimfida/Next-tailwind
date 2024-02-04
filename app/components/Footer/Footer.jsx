@@ -28,7 +28,7 @@ export const Footer = () => {
 						<FooterLinkSection links={links} key={links.id} />
 					))}
 				</div>
-				<div className="py-4 flex justify-between items-center">
+				<div className="py-4 flex justify-between items-center flex-wrap gap-4">
 					<Link href="/" passHref>
 						<Image src="/logo.png" alt="logo" width={140} height={48} layout="fixed" />
 					</Link>
