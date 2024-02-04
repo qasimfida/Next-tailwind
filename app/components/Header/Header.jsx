@@ -36,6 +36,8 @@ export const Header = () => {
 	const handleMenuOpen = () => setIsMenuOpen(true);
 	const handleMenuClose = () => setIsMenuOpen(false);
 
+	const linkCls = `rounded text-sm leading-none min-h-8 p-4 whitespace-nowrap flex items-center justify-start hover:bg-[#f2f2f2]`;
+
 	return (
 		<>
 			<div className="border-b">
@@ -72,9 +74,51 @@ export const Header = () => {
 				<SearchModal Fixed={false} placeholder="Search" />
 			</Modal>
 			<Modal isOpen={isMenuOpen} onClose={handleMenuClose}>
-				<div className="gap-2 flex mt-3">
-					<Button>Login</Button>
-					<Button variant="primary">Sign up</Button>
+				<div className="gap-2 flex flex-col justify-start">
+					<div className="border-b border-b-[#f2f2f2]">
+						<Link className={linkCls} href="#">
+							Wishlist
+						</Link>
+						<Link className={linkCls} href="#">
+							Movies
+						</Link>
+						<Link className={linkCls} href="#">
+							TV Shows
+						</Link>
+						<Link className={linkCls} href="#">
+							Clips
+						</Link>
+					</div>
+					<div className="border-b border-b-[#f2f2f2]">
+						<div
+							className={
+								"rounded text-xs font-bold leading-none min-h-8 p-3 whitespace-nowrap flex items-center justify-start"
+							}
+							href="#">
+							SETTINGS
+						</div>
+						<Link className={linkCls} href="#">
+							SignIn
+						</Link>
+						<Link className={linkCls} href="#">
+							Login
+						</Link>
+					</div>
+					<div className="border-b border-b-[#f2f2f2]">
+						<div
+							className={
+								"rounded text-xs font-bold leading-none min-h-8 p-3 whitespace-nowrap flex items-center justify-start"
+							}
+							href="#">
+							SUPPORT
+						</div>
+						<Link className={linkCls} href="#">
+							Help
+						</Link>
+						<Link className={linkCls} href="#">
+							Contact Us
+						</Link>
+					</div>
 				</div>
 			</Modal>
 		</>

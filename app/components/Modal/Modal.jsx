@@ -11,7 +11,7 @@ export const Modal = ({ isOpen, onClose, children, icon }) => {
 			<div
 				className="bg-white h-full min-w-[250px] max-w-full p-5"
 				onClick={(e) => e.stopPropagation()}>
-				<button className="absolute top-4 right-0 p-4 z-40 " onClick={onClose}>
+				<button className="absolute top-4 right-3 p-4 z-40 " onClick={onClose}>
 					{icon || <CloseIcon />}
 				</button>
 				{children}
